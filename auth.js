@@ -1,6 +1,6 @@
 // Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -16,6 +16,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+// Check if user is logged in
+onAuthStateChanged(auth, user => {
+    if (user) {
+        // If user is logged in, redirect to index.html
+        window.location = 'index.html';
+    }
+});
 
 // Email and Password Login
 document.getElementById('loginEmailPassword').addEventListener('click', async () => {
@@ -42,4 +50,16 @@ document.getElementById('loginGoogle').addEventListener('click', async () => {
         console.error('Error signing in with Google:', error);
         alert('Failed to log in with Google: ' + error.message);
     }
+});
+
+// Logout function
+document.getElementById('logout').addEventListener('click', () => {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log('User signed out.');
+        window.location = 'login.html';
+    }).catch((error) => {
+        // An error happened.
+        console.error('Sign out error:', error);
+    });
 });
