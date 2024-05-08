@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Intelligence in Trading</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+.module-list {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black; /* Set background to black */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+    z-index: 1000; /* Higher z-index to be on top */
+}
+
+.module-list.show {
+    transform: translateY(0%);
+}
+
+.module-list a { /* Styling for the links */
+    display: inline-block;
+    background-color: white; /* White background for the links */
+    color: black; /* Black text color */
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 20px; /* Pill shape */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold;
+}
+
+.module-list a:hover { /* Hover state for the links */
+    background-color: #f0f0f0; /* Lighter shade on hover */
+}
+
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<nav class="bg-blue-400 shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+          <div class="flex">
+              <div class="flex-shrink-0 flex items-center">
+                  <img class="block lg:hidden h-12 w-auto" src="logo2.png" alt="FN Academy">
+                  <img class="hidden lg:block h-12 w-auto" src="logo2.png" alt="FN Academy">
+              </div>
+          </div>
+          <div class="flex items-center">
+              <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Client Area</a>
+              <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">My Progress</a>
+          </div>
+      </div>
+  </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <div class="bg-blue-800 text-white py-40 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto mb-20px px-4 pt-4">
+            <div class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-1 px-4 rounded-full inline-block mb-4">Trading Psychology</div>
+            <h1 class="text-4xl font-bold">Understanding the Psychology of Trading</h1>
+        </div>
+        <div class="flex justify-end pr-8">
+            <button id="showModulesBtn" class="bg-blue-500 text-white py-2 px-6 rounded-full focus:outline-none">Show All Modules</button>
+        </div>
+        <!-- Module List -->
+        <div id="moduleList" class="module-list">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <button id="hideModulesBtn" class="bg-yellow-500 text-white py-2 px-6 rounded-full focus:outline-none">Hide Modules</button>
+                <div class="mt-4">
+                    <h3 class="text-lg font-semibold mb-2">Modules</h3>
+                    <ul class="list-disc pl-5">
+                        <li><a href="#market-psychology" class="text-blue-500 hover:text-blue-700">Market Psychology</a></li>
+                        <li><a href="#managing-emotions" class="text-blue-500 hover:text-blue-700">Managing Emotions</a></li>
+                        <li><a href="#stress-tolerance" class="text-blue-500 hover:text-blue-700">Stress Tolerance</a></li>
+                        <li><a href="#decision-making" class="text-blue-500 hover:text-blue-700">Decision Making Under Pressure</a></li>
+                        <li><a href="#market-psychology" class="text-blue-500 hover:text-blue-700">Market Psychology</a></li>
+                        <li><a href="#managing-emotions" class="text-blue-500 hover:text-blue-700">Managing Emotions</a></li>
+                        <li><a href="#stress-tolerance" class="text-blue-500 hover:text-blue-700">Stress Tolerance</a></li>
+                        <li><a href="#decision-making" class="text-blue-500 hover:text-blue-700">Decision Making Under Pressure</a></li>
+                        <li><a href="#market-psychology" class="text-blue-500 hover:text-blue-700">Market Psychology</a></li>
+                        <li><a href="#managing-emotions" class="text-blue-500 hover:text-blue-700">Managing Emotions</a></li>
+                        <li><a href="#stress-tolerance" class="text-blue-500 hover:text-blue-700">Stress Tolerance</a></li>
+                        <li><a href="#decision-making" class="text-blue-500 hover:text-blue-700">Decision Making Under Pressure</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <iframe 
+    src="https://www.youtube.com/embed/3kyKPQ6bbtU?autoplay=1&mute=1&loop=1&playlist=3kyKPQ6bbtU&controls=1&showinfo=0&rel=0" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen
+    style="width: 40%; height: 600px; margin: -110px auto 0 auto; display: block; filter: opacity(100%); border-radius: 15px;"
+    class="youtube-video">
+</iframe>
+
+    <!-- Description and Table of Contents -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- YouTube video as full background -->
+        <h2 class="text-3xl font-bold text-center mb-6">Why is Emotional Intelligence Important in Trading?</h2>
+        <p class="text-lg text-gray-700">
+            Trading is not just about strategies and numbers; it involves a high degree of emotional intelligence. Understanding your emotions and the psychological pressures of trading can greatly enhance your ability to make consistent decisions under stress.
+        </p>
+        <div class="mt-8">
+            <h3 class="text-2xl font-bold mb-3">Table of Contents</h3>
+            <ul class="list-disc pl-5">
+                <li><a href="#market-psychology" class="text-blue-500 hover:text-blue-700">Market Psychology</a></li>
+                <li><a href="#managing-emotions" class="text-blue-500 hover:text-blue-700">Managing Emotions</a></li>
+                <li><a href="#stress-tolerance" class="text-blue-500 hover:text-blue-700">Stress Tolerance</a></li>
+                <li><a href="#decision-making" class="text-blue-500 hover:text-blue-700">Decision Making Under Pressure</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Content for each section in the table of contents -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-center mb-6">Why is Emotional Intelligence Important in Trading?</h2>
+        <p class="text-lg text-gray-700">
+            Trading is not just about strategies and numbers; it involves a high degree of emotional intelligence. Understanding your emotions and the psychological pressures of trading can greatly enhance your ability to make consistent decisions under stress.
+        </p>
+        <div class="mt-8">
+            <h3 id="market-psychology" class="text-2xl font-bold mb-3">Market Psychology</h3>
+            <p class="text-gray-700">
+                Market psychology refers to the collective sentiment or emotions of traders and investors that drive market movements. Understanding market psychology is crucial for traders as it helps them anticipate market trends and make informed decisions.
+            </p>
+
+            <h3 id="managing-emotions" class="text-2xl font-bold mt-8 mb-3">Managing Emotions</h3>
+            <p class="text-gray-700">
+                Managing emotions is essential for traders to avoid making impulsive decisions driven by fear or greed. Techniques such as mindfulness, emotional awareness, and relaxation exercises can help traders maintain emotional balance during volatile market conditions.
+            </p>
+
+            <h3 id="stress-tolerance" class="text-2xl font-bold mt-8 mb-3">Stress Tolerance</h3>
+            <p class="text-gray-700">
+                Trading can be highly stressful, especially during periods of market uncertainty or significant losses. Developing stress tolerance involves building resilience and adopting coping mechanisms to deal with the psychological pressures of trading.
+            </p>
+
+            <h3 id="decision-making" class="text-2xl font-bold mt-8 mb-3">Decision Making Under Pressure</h3>
+            <p class="text-gray-700">
+                Making decisions under pressure is a skill that successful traders must master. Effective decision-making involves staying focused, analyzing information objectively, and managing emotions to avoid cognitive biases that can lead to costly mistakes.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 w-full">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
+            <p>© 2023 FN Academy. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const showModulesBtn = document.getElementById('showModulesBtn');
+    const hideModulesBtn = document.getElementById('hideModulesBtn');
+    const moduleList = document.getElementById('moduleList');
+
+    showModulesBtn.addEventListener('click', function () {
+        moduleList.classList.add('show');
+    });
+
+    hideModulesBtn.addEventListener('click', function () {
+        moduleList.classList.remove('show');
+    });
+});
+
+    </script>
+</body>
+</html>
