@@ -16,6 +16,21 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Function to redirect to login page
+function redirectToLogin() {
+    // Check if the user is already on the login page to prevent redirection loop
+    if (!window.location.pathname.includes('login.html')) {
+        window.location = 'login.html';
+    }
+}
+
+// Check authentication state
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        redirectToLogin(); // Redirect to login page if user is not authenticated
+    }
+});
+
 // Function to handle email and password login
 async function loginWithEmailPassword() {
     const email = document.getElementById('email').value;
