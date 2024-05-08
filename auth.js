@@ -69,7 +69,7 @@ function logout() {
     signOut(auth).then(() => {
         // Sign-out successful.
         console.log('User signed out.');
-        window.location = 'login.html';
+        window.location = 'https://ov1faruk.github.io/FNAcademy/login.html';
     }).catch((error) => {
         // An error happened.
         console.error('Sign out error:', error);
