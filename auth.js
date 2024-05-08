@@ -43,6 +43,11 @@ async function loginWithGoogle() {
     }
 }
 
+
+
+document.getElementById('loginGoogle').addEventListener('click', loginWithGoogle);
+
+
 // Function to handle logout
 function logout() {
     console.log('Logout button clicked');
@@ -55,6 +60,7 @@ function logout() {
         console.error('Sign out error:', error);
     });
 }
+
 
 // Function to observe changes to the DOM and add event listener when logout button is added
 function observeDOM() {
