@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Main Content Section -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl font-bold text-center mb-6">Video Progress Tracker</h1>
+        <!-- YouTube video -->
+        <div id="player"></div>
+    </div>
+
+    <!-- Load YouTube IFrame Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: '3kyKPQ6bbtU',
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        var videoLength = 0;
+        var minViewTimeReached = false;
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !minViewTimeReached) {
+                videoLength = player.getDuration();
+                setTimeout(checkProgress, (videoLength - 15) * 1000);
+            }
+        }
+
+        function checkProgress() {
+            var currentTime = player.getCurrentTime();
+            if (currentTime >= videoLength - 15) {
+                console.log("Minimum view time reached.");
+                minViewTimeReached = true;
+                // Here you can perform further actions, e.g., updating user progress in a database
+            } else {
+                console.log("Minimum view time not reached.");
+            }
+        }
+    </script>
+</body>
+</html>
