@@ -142,18 +142,15 @@
           </div>
       </div>
   </footer>
-<script>
-  document.body.addEventListener('click', function(event) {
-    if (event.target.id === 'logout') {
-        logout();
-    }
-});
-
-</script>
-
-
-
-  <script type="module" src="auth.js"></script>
+  
+  <script type="module">
+    import { logout } from './auth.js';
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('logout').addEventListener('click', logout);
+    });
+  </script>
+  
 
 
 </body>

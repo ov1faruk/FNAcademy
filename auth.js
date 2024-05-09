@@ -32,7 +32,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 // Function to handle email and password login
-async function loginWithEmailPassword() {
+export async function loginWithEmailPassword(email, password) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     try {
@@ -46,7 +46,7 @@ async function loginWithEmailPassword() {
 }
 
 // Function to handle Google login
-async function loginWithGoogle() {
+export async function loginWithGoogle() {
     const provider = new GoogleAuthProvider();
     try {
         const result = await signInWithPopup(auth, provider);
@@ -60,11 +60,8 @@ async function loginWithGoogle() {
 
 
 
-document.getElementById('loginGoogle').addEventListener('click', loginWithGoogle);
-
-
 // Function to handle logout
-function logout() {
+export function logout() {
     console.log('Logout button clicked');
     signOut(auth).then(() => {
         console.log('User signed out.');

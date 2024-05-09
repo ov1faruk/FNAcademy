@@ -32,6 +32,21 @@
         </form>
     </div>
 
-    <script type="module" src="auth.js"></script>
+   <!-- No inline event handlers are needed directly in the HTML file -->
+<script type="module" src="auth.js"></script>
+<script type="module">
+  import { loginWithEmailPassword, loginWithGoogle } from './auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loginEmailPassword').addEventListener('click', () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      loginWithEmailPassword(email, password);
+    });
+
+    document.getElementById('loginGoogle').addEventListener('click', loginWithGoogle);
+  });
+</script>
+
 </body>
 </html>
