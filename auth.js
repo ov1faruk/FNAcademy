@@ -67,14 +67,13 @@ document.getElementById('loginGoogle').addEventListener('click', loginWithGoogle
 function logout() {
     console.log('Logout button clicked');
     signOut(auth).then(() => {
-        // Sign-out successful.
         console.log('User signed out.');
-        window.location = 'https://ov1faruk.github.io/FNAcademy/login.html';
+        window.location = 'login.html'; // Update this to your logout redirect
     }).catch((error) => {
-        // An error happened.
         console.error('Sign out error:', error);
     });
 }
+
 
 
 // Function to observe changes to the DOM and add event listener when logout button is added
