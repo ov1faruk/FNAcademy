@@ -16,25 +16,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Function to redirect to login page
-function redirectToLogin() {
-    // Check if the user is already on the login page to prevent redirection loop
-    if (!window.location.pathname.includes('login.html')) {
-        window.location = 'login.html';
-    }
-}
-
-// Check authentication state
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-        redirectToLogin(); // Redirect to login page if user is not authenticated
-    }
-});
-
 // Function to handle email and password login
-async function loginWithEmailPassword() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+export async function loginWithEmailPassword(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log('User signed in:', userCredential.user);
@@ -46,7 +29,7 @@ async function loginWithEmailPassword() {
 }
 
 // Function to handle Google login
-async function loginWithGoogle() {
+export async function loginWithGoogle() {
     const provider = new GoogleAuthProvider();
     try {
         const result = await signInWithPopup(auth, provider);
@@ -58,38 +41,27 @@ async function loginWithGoogle() {
     }
 }
 
-
-
-
 // Function to handle logout
-function logout() {
+export function logout() {
     console.log('Logout button clicked');
     signOut(auth).then(() => {
         console.log('User signed out.');
-        window.location = 'login.html'; // Update this to your logout redirect
+        window.location = 'login.html'; // Redirect to login.html on logout
     }).catch((error) => {
         console.error('Sign out error:', error);
     });
 }
 
-
-
-// Function to observe changes to the DOM and add event listener when logout button is added
-function observeDOM() {
-    const observer = new MutationObserver((mutationsList) => {
-        mutationsList.forEach((mutation) => {
-            if (mutation.type === 'childList') {
-                const logoutButton = document.getElementById('logout');
-                if (logoutButton) {
-                    logoutButton.addEventListener('click', logout);
-                    observer.disconnect(); // Stop observing once the logout button is found
-                }
-            }
-        });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
+// Redirect to login page if not authenticated
+function redirectToLogin() {
+    if (!window.location.pathname.includes('login.html')) {
+        window.location = 'login.html';
+    }
 }
 
-// Start observing changes to the DOM
-observeDOM();
+// Monitoring authentication state
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        redirectToLogin(); // Redirect to login page if user is not authenticated
+    }
+});
