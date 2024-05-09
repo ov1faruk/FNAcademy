@@ -52,9 +52,22 @@ export function logout() {
     });
 }
 
-// Redirect to login page if not authenticated
+export async function signUpWithEmailPassword(email, password) {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log('User created:', userCredential.user);
+        window.location = 'index.html'; // Redirect to main page on success
+    } catch (error) {
+        console.error('Error creating user:', error);
+        alert('Failed to create account: ' + error.message);
+    }
+}
+
+// Function to redirect to login page, excluding the signup page
 function redirectToLogin() {
-    if (!window.location.pathname.includes('login.html')) {
+    const pathname = window.location.pathname;
+    // Check if the current page is neither login.html nor signup.html
+    if (!pathname.includes('login.html') && !pathname.includes('signup.html')) {
         window.location = 'login.html';
     }
 }
@@ -62,6 +75,6 @@ function redirectToLogin() {
 // Monitoring authentication state
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        redirectToLogin(); // Redirect to login page if user is not authenticated
+        redirectToLogin(); // Redirect if user is not authenticated, except on signup page
     }
 });
